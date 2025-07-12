@@ -6,7 +6,6 @@ style.textContent = `
     transform: translateY(20px);
     transition: opacity 0.9s ease-out, transform 0.6s ease-out;
   }
-
   .reveal.animate {
     opacity: 1;
     transform: translateY(0);
@@ -24,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         // Force le reflow pour que la transition soit prise en compte
-        void entry.target.offsetWidth; // ← C'est ça le "hack" crucial parfois
+        void entry.target.offsetWidth;
         entry.target.classList.add("animate");
         observer.unobserve(entry.target);
       }
